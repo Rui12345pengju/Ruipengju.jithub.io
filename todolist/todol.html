@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>待办事项</title>
+    <script src="jquery-3.2.1.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            background: #CDCDCD;
+        }
+        header{
+            width: 100%;
+            height: 60px;
+            background: #333333;
+        }
+        min{
+            background: #cdcdcd;
+        }
+        .to{
+            width: 500px;
+            height: 60px;
+            background: #333333;
+            margin: 0 auto;
+        }
+        h1{
+            float: left;
+            font-size:23px;
+            line-height: 60px;
+            color: white;
+        }
+        .to input{
+            float: right;
+            width: 60%;
+            height: 24px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.24);
+            border: none;
+
+        }
+        section{
+            margin: 0 auto;
+        }
+        .doing{
+            width: 500px;
+            margin:30px auto;
+
+        }
+        .fv{
+            display: flex;
+            justify-content: space-between;
+        }
+        .done{
+            width: 500px;
+            margin: 0 auto;
+        }
+        .doing h2{
+
+            font-size: 25px;
+            color: black;
+            cursor: pointer;
+        }
+        .done h2{
+            font-size: 25px;
+            color: black;
+            cursor: pointer;
+        }
+        ul{
+            padding:10px 0;
+        }
+        .biao{
+            display: inline-block;
+            padding: 0 10px;
+            border-radius: 20px;
+            background: #E6E6FA;
+            line-height: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        li{
+            width: 500px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        .xin{
+            height: 32px;
+            line-height: 32px;
+            background: #fff;
+            position: relative;
+            margin-bottom: 10px;
+            padding: 0 45px;
+            border-radius: 3px;
+            border-left: 5px solid #629A9C;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+            cursor: pointer;
+                 }
+        .xin input{
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+        }
+        .xin h2{
+            font-size: 20px;
+            line-height: 32px;
+            cursor: pointer;
+        }
+        .dian{
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            display: inline-block;
+            width: 14px;
+            height: 12px;
+            border-radius: 14px;
+            border: 6px double #fff;
+            background: #CCC;
+            line-height: 14px;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        footer{
+            width: 500px;
+            height: 60px;
+            margin: 0 auto;
+        }
+        .di{
+            text-align: center;
+        }
+        .bian{
+            color:#999;
+           margin-right: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="to">
+       <h1>ToDoList</h1>
+        <input type="text" id="title" name="title" placeholder="添加ToDo" required="required" autocomplete="off">
+    </div></header>
+
+    <section>
+        <div class="doing">
+            <div class="fv">
+        <h2>正在进行</h2>
+        <div class="biao">0</div></div>
+        <ul>
+        <li class="xinjia">
+    <div class="xin">
+        <input type="checkbox">
+        <p>学习</p>
+        <a href="" class="dian"></a>
+    </div>
+    </li>
+        <li class="xinjia">
+            <div class="xin">
+                <input type="checkbox">
+                <p>学习</p>
+                <a href="" class="dian"></a>
+            </div>
+        </li>
+        <li class="xinjia">
+            <div class="xin">
+                <input type="checkbox">
+                <p>学习</p>
+                <a href="" class="dian"></a>
+            </div>
+        </li></ul>
+        </div>
+   <div class="done">
+       <div class="fv">
+        <h2>已经完成</h2>
+        <div class="biao">0</div></div>
+        <ul>
+        <li class="xinjia">
+            <div class="xin">
+                <input type="checkbox"  checked="checked">
+                <p>学习</p>
+                <a href="" class="dian"></a>
+            </div>
+        </li>
+        <li class="xinjia">
+            <div class="xin">
+                <input type="checkbox"  checked="checked">
+                <p>学习</p>
+                <a href="" class="dian"></a>
+            </div>
+        </li>
+        <li class="xinjia">
+            <div class="xin">
+                <input type="checkbox" checked="checked">
+                <p>学习</p>
+                <a href="" class="dian"></a>
+            </div>
+        </li>
+        </ul>
+   </div>
+    </section>
+<footer>
+    <div class="di">
+    Copyright © 2014 todolist.cn<a href="" class="bian">clear</a></div>
+
+</footer>
+</body>
+</html>
+<script>
+//    let input=document.querySelector("input");
+//    let center=document.querySelector(".xinjia");
+//    let h=document.querySelector(".xinjia h2");
+//    let cc=document.querySelector(".dian");
+//    let he=document.querySelector("section");
+//    let xu=document.querySelector(".xuan");
+//   console.log(input,center,cc,he,h);
+//   window.onkeydown=function (e) {
+//       let key=e.keyCode;
+//       let pp=input.value;
+//       if(key==13){
+//           if(pp==""){
+//              alert("有事")
+//           }
+//           else{
+//               input.blur();
+//               xin.innerText.value=input.value;
+//               input.value="";
+//           }
+//       }
+//       input.onblur=function () {
+//       let xin=document.createElement("xinjia");
+//       xin.innerHTML=`
+//          <div class="xinjia">
+//        <div class="xin">
+//        <input type="checkbox"  class="shuru">
+//        <h2></h2>
+//        <a href="" class="dian"></a>
+//    </div>
+//    </div>
+//       `
+//           he.insertBefore(xin,xu)
+//       }
+//    sh.onclick=function () {
+//        let clon=center.cloneNode(true,1);
+//        he.appendChild(clon)
+//    }
+//   }
+    var todo=[
+        {id:0,content:"这是我们的东西",status:true},
+        {id:1,content:"这是我们欢喜",status:false},
+        {id:2,content:"这是我的动力",status:true},
+        {id:3,content:"这是我土语",status:false},
+        {id:4,content:"这是巴拿马",status:true},
+        {id:5,content:"这是考咯胡",status:false},
+    ];
+    let nextid=7;
+    function render(){
+        let doing=[];
+        let done=[];
+        todo.forEach(val=>{
+            if(val.status){
+                done.push(val);
+            }
+            else{
+                doing.push(val);
+            }
+
+        });
+        console.log(doing,done)
+
+        let str="";
+         doing.forEach(val=>{
+        str+=`
+         <li id="${val.id}">
+            <div class="xin">
+                <input type="checkbox" >
+                <p>${val.content}</p>
+                <a href="" class="dian"></a>
+            </div>
+        </li>
+        `;
+        $(".doing").find("ul").html(str);
+             $(".fv").find(".biao").html(todo.length)
+         });
+         let atr="";
+         done.forEach(val=>{
+             atr+=`
+         <li id="${val.id}">
+            <div class="xin">
+                <input type="checkbox" checked="checked">
+                <p>${val.content}</p>
+                <a href="" class="dian"></a>
+            </div>
+        </li>
+        `;
+        $(".done").find("ul").html(atr);
+         $(".fv").find(".biao").html(todo.length)
+         });
+    }
+render()
+
+    $("section").on("click","dian",function () {
+        let id=$(this).closest("li").attr("id");
+        let index=todo.findIndex(va=>val,id==id);
+        todo.splice(index,1);
+        if($(this).closest("section").hasClass("doing")){
+            let index=doing.findIndex(val=>val.id==id);
+        }
+
+        }).on("click","p",function () {
+        let id=$(this).closest("li").attr("id");
+        let index=todo.findIndex(va=>val,id==id);
+        let input=$("<input>").val($(this).text()).$(this).html("").append("input")
+        input.focus()
+        input.change(function () {
+            todo[index].content=$(this).val();
+            render();
+        }).on("click","input.checkbox",function () {
+            let id=$(this).closest("li").attr("id");
+            let index=todo.findIndex(va=>val,id==id);
+            todo[index].status=!todo[index].status;
+            render()
+        })
+        let input=$("#input");
+        input.on("keyup",function (e) {
+            if(e.whitch===13){
+                if(!$(this).val()){
+                    todo.push({id:nextid,content:$(this).val(),status:false})
+                    nextid++;
+                    render()
+                }
+            }
+        })
+    })
+
+</script>
